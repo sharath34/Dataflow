@@ -1,5 +1,4 @@
 import apache_beam as beam
-
 import argparse
 import json
 
