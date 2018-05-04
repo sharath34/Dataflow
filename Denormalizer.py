@@ -69,8 +69,8 @@ def join_user(element):
         joined.append(two)
     return joined
 
-    PROJECT = 'profound-veld-202319'
-    BUCKET = 'test-buck1'
+PROJECT = '*your_project*'
+BUCKET = '*your bucket*'
 
 
 def run(argv=None):
@@ -85,23 +85,22 @@ def run(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument('--streams',
                         dest='streams',
-                        default='gs://test-buck1/streams.gz',
+                        default='gs://***',
                         help='Streams file to process.')
     parser.add_argument('--tracks',
                         dest='tracks',
-                        default='gs://test-buck1/tracks.gz',
+                        default='gs://***',
                         help='Tracks file to process.')
     parser.add_argument('--users',
                         dest='users',
-                        default='gs://test-buck1/users.gz',
+                        default='gs://***',
                         help='Users file to process.')
     parser.add_argument('--output',
                         dest='output',
-                        default='gs://test-buck1/python_result.json',
+                        default='gs://***',
                         help='Output file to write results to.')
 
-    def run():
-        known_args, pipeline_args = parser.parse_known_args(argv)
+    known_args, pipeline_args = parser.parse_known_args(argv)
 
     pipeline_options = PipelineOptions(pipeline_args)
     pipeline_options.view_as(SetupOptions).save_main_session = True
